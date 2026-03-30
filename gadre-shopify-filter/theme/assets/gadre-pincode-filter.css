@@ -1,0 +1,311 @@
+/* ═══════════════════════════════════════════════════════════
+   Gadre Shopify Web — Pincode Filter Styles
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Anti-Flicker / Slow Connection Protection ───────────── */
+/* Locks products and cart buttons while Javascript is loading */
+body:not(.gadre-ready) [data-product-card],
+body:not(.gadre-ready) button[name="add"],
+body:not(.gadre-ready) .add-to-cart,
+body:not(.gadre-ready) form[action^="/cart/add"] [type="submit"] {
+    opacity: 0.4 !important;
+    pointer-events: none !important;
+    cursor: wait !important;
+    transition: opacity 0.3s ease;
+}
+
+/* ─── Pincode Modal Overlay ───────────────────────────────── */
+.gadre-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.gadre-modal-overlay.gadre-modal--active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ─── Modal Card ──────────────────────────────────────────── */
+.gadre-modal-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 32px 28px;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    transform: translateY(20px) scale(0.95);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.gadre-modal--active .gadre-modal-card {
+    transform: translateY(0) scale(1);
+}
+
+.gadre-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+    padding: 4px 8px;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.gadre-modal-close:hover {
+    color: #333;
+}
+
+/* ─── Modal Content ───────────────────────────────────────── */
+.gadre-modal-icon {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.gadre-modal-title {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 6px 0;
+    color: #1a1a1a;
+}
+
+.gadre-modal-subtitle {
+    font-size: 14px;
+    color: #777;
+    text-align: center;
+    margin: 0 0 24px 0;
+}
+
+/* ─── Pincode Input ───────────────────────────────────────── */
+.gadre-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.gadre-pincode-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: #333;
+}
+
+.gadre-pincode-input:focus {
+    border-color: #1a73e8;
+}
+
+.gadre-pincode-input::placeholder {
+    letter-spacing: 0;
+    color: #bbb;
+    font-weight: 400;
+}
+
+.gadre-submit-btn {
+    padding: 12px 20px;
+    background: #1a73e8;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.gadre-submit-btn:hover {
+    background: #1557b0;
+}
+
+.gadre-submit-btn:active {
+    transform: scale(0.97);
+}
+
+.gadre-submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* ─── Result Messages ─────────────────────────────────────── */
+.gadre-success {
+    background: #e8f5e9;
+    border: 1px solid #a5d6a7;
+    border-radius: 10px;
+    padding: 14px 16px;
+    text-align: center;
+}
+
+.gadre-city-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2e7d32;
+    margin: 0 0 4px 0;
+}
+
+.gadre-delivery-msg {
+    font-size: 13px;
+    color: #558b2f;
+    margin: 0;
+}
+
+.gadre-error {
+    color: #d32f2f;
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+    padding: 8px;
+    background: #ffebee;
+    border-radius: 8px;
+}
+
+/* ─── Clear Location Link ─────────────────────────────────── */
+.gadre-clear-link {
+    display: block;
+    text-align: center;
+    margin-top: 16px;
+    font-size: 13px;
+    color: #999;
+    text-decoration: underline;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.gadre-clear-link:hover {
+    color: #666;
+}
+
+/* ─── Header Location Bar ─────────────────────────────────── */
+.gadre-location-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: background 0.2s;
+    font-size: 13px;
+    color: #666;
+}
+
+.gadre-location-bar:hover {
+    background: #f5f5f5;
+}
+
+.gadre-location-bar .gadre-location-icon {
+    font-size: 16px;
+}
+
+.gadre-location-bar .gadre-location-text {
+    font-weight: 500;
+}
+
+.gadre-location-bar .gadre-location-text.gadre-location--active {
+    color: #1a73e8;
+    font-weight: 600;
+}
+
+.gadre-location-bar .gadre-location-arrow {
+    font-size: 10px;
+    margin-left: 2px;
+}
+
+/* ─── Delivery Message Banner ─────────────────────────────── */
+.gadre-delivery-banner {
+    background: linear-gradient(90deg, #e8f5e9, #f1f8e9);
+    color: #2e7d32;
+    text-align: center;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    display: none;
+}
+
+/* ─── Product Empty State ─────────────────────────────────── */
+.gadre-empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    display: none;
+}
+
+.gadre-empty-state .gadre-empty-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.gadre-empty-state .gadre-empty-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8px 0;
+}
+
+.gadre-empty-state .gadre-empty-subtitle {
+    font-size: 14px;
+    color: #999;
+    margin: 0 0 20px 0;
+}
+
+.gadre-empty-state .gadre-change-btn {
+    display: inline-block;
+    padding: 10px 24px;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.gadre-empty-state .gadre-change-btn:hover {
+    background: #1557b0;
+}
+
+/* ─── Responsive ──────────────────────────────────────────── */
+@media (max-width: 480px) {
+    .gadre-modal-card {
+        padding: 24px 20px;
+        width: 95%;
+    }
+
+    .gadre-input-group {
+        flex-direction: column;
+    }
+
+    .gadre-submit-btn {
+        width: 100%;
+        padding: 14px;
+    }
+
+    .gadre-modal-title {
+        font-size: 18px;
+    }
+}

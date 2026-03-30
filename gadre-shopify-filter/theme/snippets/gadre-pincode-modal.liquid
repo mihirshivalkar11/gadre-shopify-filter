@@ -1,0 +1,64 @@
+{% comment %}
+  Gadre Pincode Modal — Paste this file into your Shopify theme's snippets/ folder.
+  Then add {% render 'gadre-pincode-modal' %} in layout/theme.liquid before </body>.
+{% endcomment %}
+
+<!-- ═══ Pincode Modal ═══ -->
+<div id="gadre-pincode-modal" class="gadre-modal-overlay">
+  <div class="gadre-modal-card">
+    <button id="gadre-modal-close" class="gadre-modal-close" aria-label="Close">&times;</button>
+
+    <div class="gadre-modal-icon">📍</div>
+    <h2 class="gadre-modal-title">Where should we deliver?</h2>
+    <p class="gadre-modal-subtitle">Enter your pincode to see available products</p>
+
+    <div class="gadre-input-group">
+      <input
+        type="text"
+        id="gadre-pincode-input"
+        class="gadre-pincode-input"
+        placeholder="Enter Pincode"
+        maxlength="6"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        autocomplete="postal-code"
+      >
+      <button id="gadre-pincode-submit" class="gadre-submit-btn">
+        Check Availability
+      </button>
+    </div>
+
+    <div id="gadre-pincode-result"></div>
+
+    <button id="gadre-clear-location" class="gadre-clear-link">
+      Clear saved location
+    </button>
+  </div>
+</div>
+
+<!-- ═══ Header Location Bar ═══ -->
+{% comment %}
+  Place this wherever you want the "Delivering to: City — Pincode" indicator.
+  Typically in your header, near the logo or nav. Example placement:
+  In sections/header.liquid, add this anywhere inside the header HTML.
+{% endcomment %}
+<!--
+<div id="gadre-change-location" class="gadre-location-bar">
+  <span class="gadre-location-icon">📍</span>
+  <span id="gadre-location-text" class="gadre-location-text">Select your location</span>
+  <span class="gadre-location-arrow">▾</span>
+</div>
+-->
+
+<!-- ═══ Delivery Message Banner ═══ -->
+<div id="gadre-delivery-banner" class="gadre-delivery-banner"></div>
+
+<!-- ═══ Empty State (shown when no products match the depot) ═══ -->
+<div id="gadre-empty-state" class="gadre-empty-state">
+  <div class="gadre-empty-icon">🐟</div>
+  <p class="gadre-empty-title">No products available for your location</p>
+  <p class="gadre-empty-subtitle">Try a different pincode to see what's available near you.</p>
+  <button class="gadre-change-btn" onclick="window.GadreFilter && window.GadreFilter.showModal()">
+    Change Location
+  </button>
+</div>
