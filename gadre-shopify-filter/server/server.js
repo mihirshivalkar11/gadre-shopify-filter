@@ -22,14 +22,14 @@ const PORT = process.env.PORT || 3001;
 
 // Data Source: Google Sheets CSV URL via environment variable
 // Ensure process.env.PINCODE_SHEET_URL is set in your Render/Railway/Vercel dashboard.
-const PINCODE_SHEET_URL = process.env.PINCODE_SHEET_URL || 'YOUR_FALLBACK_CSV_URL_HERE';
+const PINCODE_SHEET_URL = process.env.PINCODE_SHEET_URL || 'https://docs.google.com/spreadsheets/d/1nVWFrDEVR58ngHbVDk6ifx6-iK17OvSeQncEVagEZK8/edit?gid=769140284#gid=769140284';
 
 // CORS — Allow your Shopify store domain
 // TODO: Replace '*' with your actual store domain for production security
 // e.g. 'https://gadre-estore.myshopify.com' or 'https://www.gadre.co.in'
 const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS
     ? process.env.ALLOWED_ORIGINS.split(',')
-    : ['*'];
+    : ['https://test-pincode-2.myshopify.com/'];
 
 app.use(cors({
     origin: function(origin, callback) {
