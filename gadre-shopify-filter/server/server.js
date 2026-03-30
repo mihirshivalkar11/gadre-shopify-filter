@@ -29,7 +29,7 @@ const PINCODE_SHEET_URL = process.env.PINCODE_SHEET_URL || 'https://docs.google.
 // e.g. 'https://gadre-estore.myshopify.com' or 'https://www.gadre.co.in'
 const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS
     ? process.env.ALLOWED_ORIGINS.split(',')
-    : ['https://test-pincode-2.myshopify.com/'];
+    : ['https://test-pincode-2.myshopify.com'];
 
 app.use(cors({
     origin: function(origin, callback) {
