@@ -12,7 +12,7 @@
 // PASTE THE FOLLOWING INTO YOUR server.js (after existing routes)
 // ============================================================
 
-const WEB_PINCODE_SHEET_URL = process.env.PINCODE_SHEET_URL || 'YOUR_FALLBACK_CSV_URL_HERE';
+const WEB_PINCODE_SHEET_URL = process.env.PINCODE_SHEET_URL || 'https://docs.google.com/spreadsheets/d/1nVWFrDEVR58ngHbVDk6ifx6-iK17OvSeQncEVagEZK8/edit?gid=769140284#gid=769140284';
 
 // In-memory cache for the web pincode data
 let webPincodeCache = null;
