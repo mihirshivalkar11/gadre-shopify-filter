@@ -13,7 +13,7 @@
     // ═══════════════════════════════════════════════════════════
     // CONFIGURATION — Update this to your server URL
     // ═══════════════════════════════════════════════════════════
-    const API_BASE_URL = 'https://gadre-shopify-filter.onrender.com'; // TODO: Replace with your actual server URL
+    const API_BASE_URL = 'https://gadre-pincode-filter.onrender.com'; // TODO: Replace with your actual server URL
 
     // LocalStorage keys
     const LS_PINCODE = 'gadre_web_pincode';
